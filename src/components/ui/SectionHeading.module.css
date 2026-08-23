@@ -1,0 +1,27 @@
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.75rem;
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+}
+
+.start {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.title {
+  font-size: clamp(1.7rem, 5vw, 2.6rem);
+  letter-spacing: -0.01em;
+}
+
+.sub {
+  max-width: 46ch;
+  color: var(--brown-soft);
+  font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+}

@@ -1,0 +1,90 @@
+.section {
+  padding-block: 2.5rem;
+  background: var(--cream);
+}
+
+.tinted {
+  background: var(--cream-deep);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.75rem;
+}
+
+/* --- promise row --- */
+
+.promise {
+  display: grid;
+  gap: 1rem;
+  text-align: center;
+}
+
+.promiseItem {
+  padding: 1.25rem 1rem;
+  background: var(--pink-tint);
+  border: var(--border-thin);
+  border-radius: var(--radius-lg);
+}
+
+.promiseTitle {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.promiseCopy {
+  font-size: 0.88rem;
+  color: var(--brown-soft);
+  line-height: 1.55;
+}
+
+/* --- about tease --- */
+
+.aboutTease {
+  padding-block: 2rem 3rem;
+}
+
+.teaseCopy {
+  max-width: 52ch;
+  margin-inline: auto;
+  text-align: center;
+  font-size: clamp(1rem, 2.6vw, 1.15rem);
+  line-height: 1.7;
+  color: var(--brown-soft);
+}
+
+.teaseLink {
+  font-weight: 700;
+  color: var(--pink-ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .section {
+    padding-block: 3.25rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .promise {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1000px) {
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

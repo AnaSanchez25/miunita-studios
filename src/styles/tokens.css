@@ -1,0 +1,79 @@
+/*
+  miunita studios design tokens.
+
+  The core five colours are sampled directly out of the logo artwork
+  (public/logo/miunita-logo.jpg) so the site and the mascot always agree:
+
+    #FDBACB  the logo's background pink
+    #774433  the outline brown  -> our primary ink colour
+    #D1D1D1  the grey head patches
+    #FFE5BC  the collar bell
+    #CAD9F9  the collar itself
+
+  Everything else is derived from those.
+*/
+
+:root {
+  /* --- surfaces --- */
+  --cream: #fff8f4;
+  --cream-deep: #fdefe7;
+  --white: #ffffff;
+
+  /* --- pinks --- */
+  --pink: #fdbacb;
+  --pink-soft: #fee0e7;
+  --pink-tint: #fef2f5;
+  --pink-deep: #e0708f;
+  --pink-ink: #b34d6b;
+
+  /* --- ink --- */
+  --brown: #774433;
+  --brown-soft: #9a6e5c;
+  --brown-faint: #c4a99d;
+
+  /* --- accent pastels, all pulled from the logo --- */
+  --grey: #d1d1d1;
+  --grey-soft: #ececec;
+  --butter: #ffe5bc;
+  --butter-soft: #fff3de;
+  --periwinkle: #cad9f9;
+  --periwinkle-soft: #e6edfd;
+  --mint: #cfe9db;
+  --mint-soft: #e9f5ef;
+
+  /* --- typography --- */
+  --font-display: 'Fredoka', 'Trebuchet MS', sans-serif;
+  --font-body: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* --- shape --- */
+  --radius-pill: 999px;
+  --radius-card: 14px;
+  --radius-lg: 24px;
+  --border: 2px solid var(--brown);
+  --border-thin: 1.5px solid var(--brown);
+
+  /* --- rhythm --- */
+  --page-max: 1180px;
+  --gutter: 1.25rem;
+
+  /* --- motion --- */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 220ms;
+
+  /* --- elevation. Flat offset shadows, no blur: it matches the logo's
+         chunky outline better than a soft drop shadow. --- */
+  --lift: 0 3px 0 var(--brown);
+  --lift-sm: 0 2px 0 var(--brown);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --gutter: 2rem;
+  }
+}
+
+@media (min-width: 900px) {
+  :root {
+    --gutter: 2.5rem;
+  }
+}

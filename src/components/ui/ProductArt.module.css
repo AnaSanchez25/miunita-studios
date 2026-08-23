@@ -1,0 +1,13 @@
+.art {
+  width: 100%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.svg {
+  width: 82%;
+  height: 82%;
+  transition: transform var(--dur) var(--ease);
+}

@@ -1,0 +1,14 @@
+.divider {
+  display: block;
+  width: 100%;
+  /* Sits flush against the section above with no sub-pixel seam. */
+  margin-bottom: -1px;
+  position: relative;
+  z-index: 1;
+}
+
+.flip {
+  transform: scaleY(-1);
+  margin-bottom: 0;
+  margin-top: -1px;
+}

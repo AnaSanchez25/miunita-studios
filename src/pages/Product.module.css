@@ -1,0 +1,192 @@
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  padding-block: 1.1rem 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--brown-soft);
+}
+
+.crumbs a:hover {
+  color: var(--pink-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.crumbNow {
+  color: var(--brown);
+}
+
+.layout {
+  display: grid;
+  gap: 1.5rem;
+  padding-block: 1.25rem 2.75rem;
+}
+
+/* --- media --- */
+
+.media {
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--lift);
+  overflow: hidden;
+  background: var(--white);
+}
+
+.photo {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+/* --- info --- */
+
+.info {
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
+}
+
+.kind {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pink-ink);
+}
+
+.title {
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+  line-height: 1.1;
+}
+
+.price {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: var(--brown);
+}
+
+.blurb {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--brown-soft);
+  max-width: 44ch;
+  margin-bottom: 0.5rem;
+}
+
+/* --- buy row --- */
+
+.buy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  align-items: stretch;
+  margin-bottom: 0.75rem;
+}
+
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  border: var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--white);
+  box-shadow: var(--lift-sm);
+  overflow: hidden;
+  flex: none;
+}
+
+.stepper button {
+  width: 46px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--brown);
+}
+
+.stepper button:hover:not(:disabled) {
+  background: var(--pink-soft);
+}
+
+.stepper button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.stepper span {
+  min-width: 34px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.addBtn {
+  flex: 1 1 14rem;
+}
+
+/* --- details --- */
+
+.details {
+  display: grid;
+  gap: 0.85rem;
+  margin: 0.5rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1.5px dashed var(--brown-faint);
+}
+
+.details dt {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.02rem;
+  margin-bottom: 0.15rem;
+}
+
+.details dd {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--brown-soft);
+  max-width: 52ch;
+}
+
+/* --- related --- */
+
+.related {
+  background: var(--cream-deep);
+  padding-block: 2.5rem 3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+/* Tablets get the side-by-side layout too: at one column a square product
+   image eats the entire screen before any of the copy is reachable. */
+@media (min-width: 760px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2.5rem;
+    align-items: start;
+    padding-block: 1.5rem 3.5rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

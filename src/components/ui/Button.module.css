@@ -1,0 +1,96 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.6rem 1.5rem;
+  border-radius: var(--radius-pill);
+  border: var(--border);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  text-align: center;
+  box-shadow: var(--lift-sm);
+  transition:
+    transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    background-color var(--dur) var(--ease);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 var(--brown);
+}
+
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 0 0 var(--brown);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: var(--lift-sm);
+}
+
+/* --- variants --- */
+
+.primary {
+  background: var(--brown);
+  color: var(--cream);
+}
+
+.primary:hover {
+  background: #8a5140;
+}
+
+.pink {
+  background: var(--pink);
+  color: var(--brown);
+}
+
+.pink:hover {
+  background: var(--pink-soft);
+}
+
+.cream {
+  background: var(--cream);
+  color: var(--brown);
+}
+
+.cream:hover {
+  background: var(--white);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--brown);
+  box-shadow: none;
+}
+
+.ghost:hover {
+  background: var(--pink-tint);
+  transform: none;
+  box-shadow: none;
+}
+
+/* --- sizes --- */
+
+.sm {
+  min-height: 38px;
+  padding: 0.35rem 1rem;
+  font-size: 0.85rem;
+}
+
+.lg {
+  min-height: 52px;
+  padding: 0.8rem 2rem;
+  font-size: 1.05rem;
+}
+
+.full {
+  width: 100%;
+}

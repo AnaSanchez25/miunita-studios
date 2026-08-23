@@ -1,0 +1,74 @@
+.card {
+  /* Anchor for the stretched title link below. */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* Fills the grid row so that cards with one-line and two-line titles still
+     line their add-to-cart buttons up with each other. */
+  height: 100%;
+  background: var(--white);
+  border: var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--lift);
+  overflow: hidden;
+  transition:
+    transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 7px 0 var(--brown);
+}
+
+.media {
+  display: block;
+  border-bottom: var(--border);
+}
+
+.photo {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.card:hover .artBox svg {
+  transform: rotate(-4deg) scale(1.06);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.75rem 0.85rem 0.85rem;
+  flex: 1;
+}
+
+.name {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.92rem;
+  line-height: 1.3;
+}
+
+/* Makes the whole card clickable without nesting the button inside a link.
+   The button is lifted above this layer by .add below. */
+.nameLink::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.price {
+  color: var(--pink-ink);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.55rem;
+}
+
+.add {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+}
