@@ -50,6 +50,46 @@ payment backend, so the button explains that rather than dead-ending.
 Responsive from 375px up: the product grid runs 2 columns on a phone, 3 on a tablet and 4 on a
 desktop, and the nav collapses to a hamburger below 900px.
 
+## Putting it online
+
+The build is a single static file, so hosting is free anywhere. These steps use
+Cloudflare Pages; Netlify and Vercel work the same way.
+
+**One-off, no tools to install.** Run `npm run build`, then go to
+[dash.cloudflare.com](https://dash.cloudflare.com) → Workers & Pages → Create →
+Pages → "Upload assets", and drag in the `dist` folder. You get
+`miunita-studios.pages.dev` with HTTPS, free, in about two minutes.
+
+**Repeatable, from the terminal.** Once you have a Cloudflare account:
+
+```bash
+npx wrangler login
+```
+
+That opens a browser once to authorize. After that, every deploy is:
+
+```bash
+npm run deploy
+```
+
+which rebuilds and pushes the new version up.
+
+### A custom domain
+
+Buy the domain wherever you like (~$12/year for a `.com`), then in the Pages
+project: Custom domains → Set up a domain. Cloudflare handles the certificate.
+Attaching a domain to Pages costs nothing on top of the domain itself.
+
+If you have a student email, the GitHub Student Developer Pack includes a free
+`.me` domain for the first year through Namecheap.
+
+### Why there are no redirect rules
+
+Single-page apps normally need a rule sending every path back to `index.html`,
+or deep links 404. This site routes on the URL hash (`#/shop`), which browsers
+never send to the server, so every request is just `index.html` and it works on
+any static host with no configuration at all.
+
 ## Adding a product
 
 Everything comes from one file: `src/data/products.js`. Add an object to the array and it shows
