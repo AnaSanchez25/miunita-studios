@@ -4,6 +4,8 @@ The storefront for miunita studios — art prints, stickers, enamel pins and was
 
 React + Vite. Pink and cream with the cat mascot's chocolate-brown outline as the ink colour.
 
+Live at <https://miunita-studios.miunita-studios.workers.dev>
+
 ## Running it
 
 Two ways, depending on whether you want to edit or just look.
@@ -52,43 +54,44 @@ desktop, and the nav collapses to a hamburger below 900px.
 
 ## Putting it online
 
-The build is a single static file, so hosting is free anywhere. These steps use
-Cloudflare Pages; Netlify and Vercel work the same way.
+Live at **https://miunita-studios.miunita-studios.workers.dev**
 
-**One-off, no tools to install.** Run `npm run build`, then go to
-[dash.cloudflare.com](https://dash.cloudflare.com) → Workers & Pages → Create →
-Pages → "Upload assets", and drag in the `dist` folder. You get
-`miunita-studios.pages.dev` with HTTPS, free, in about two minutes.
-
-**Repeatable, from the terminal.** Once you have a Cloudflare account:
-
-```bash
-npx wrangler login
-```
-
-That opens a browser once to authorize. After that, every deploy is:
+To publish changes:
 
 ```bash
 npm run deploy
 ```
 
-which rebuilds and pushes the new version up.
+That rebuilds and uploads. On a new machine, run `npx wrangler login` once first.
+
+A few things worth knowing about this setup:
+
+- It deploys to **Cloudflare Workers static assets**, not Cloudflare Pages. Cloudflare
+  has folded Pages into Workers, and `wrangler deploy` driven by `wrangler.jsonc` is the
+  current path. That is why the URL is `workers.dev` rather than `pages.dev`.
+- The first deploy warned that no `workers.dev` subdomain was registered, and the URL
+  returned nothing for a few minutes. That was DNS propagation, not a misconfiguration.
+  If a fresh deploy ever looks dead, give it five minutes before debugging it.
+- `wrangler.jsonc` is the project config and belongs in git. The `dist/wrangler.json` and
+  `dist/.assetsignore` that appear after a build are generated metadata; `.assetsignore`
+  keeps them from being served.
+- Free tier, HTTPS included, no card required.
 
 ### A custom domain
 
-Buy the domain wherever you like (~$12/year for a `.com`), then in the Pages
-project: Custom domains → Set up a domain. Cloudflare handles the certificate.
-Attaching a domain to Pages costs nothing on top of the domain itself.
+Buy the domain wherever you like (~$12/year for a `.com`), then in the Cloudflare dashboard
+open the Worker → Settings → Domains & Routes → Add custom domain. Cloudflare issues the
+certificate. Attaching a domain costs nothing beyond the domain itself.
 
-If you have a student email, the GitHub Student Developer Pack includes a free
-`.me` domain for the first year through Namecheap.
+If you have a student email, the GitHub Student Developer Pack includes a free `.me` domain
+for the first year through Namecheap.
 
 ### Why there are no redirect rules
 
-Single-page apps normally need a rule sending every path back to `index.html`,
-or deep links 404. This site routes on the URL hash (`#/shop`), which browsers
-never send to the server, so every request is just `index.html` and it works on
-any static host with no configuration at all.
+Single-page apps normally need a rule sending every path back to `index.html`, or deep links
+404. Two things make that a non-issue here: routing happens on the URL hash (`#/shop`), which
+browsers never send to the server, and `wrangler.jsonc` sets `not_found_handling` to
+`single-page-application` so any unknown path serves the app anyway.
 
 ## Adding a product
 

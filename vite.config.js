@@ -2,6 +2,8 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { viteSingleFile } from 'vite-plugin-singlefile';
 
+import { cloudflare } from "@cloudflare/vite-plugin";
+
 /*
   Two things here exist purely so the built site can be opened by
   double-clicking dist/index.html, with no server involved:
@@ -16,7 +18,7 @@ import { viteSingleFile } from 'vite-plugin-singlefile';
   Routing uses HashRouter for the same reason — see src/App.jsx.
 */
 export default defineConfig({
-  plugins: [react(), viteSingleFile()],
+  plugins: [react(), viteSingleFile(), cloudflare()],
   base: './',
   server: {
     // Vite does not read PORT from the environment on its own. Honouring it
