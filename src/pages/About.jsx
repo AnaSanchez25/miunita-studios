@@ -34,8 +34,8 @@ export default function About() {
       <section className={styles.story}>
         <div className={`wrap ${styles.prose}`}>
           <p>
-            Everything starts as a drawing. Most of them start as a drawing of the cat, who runs
-            the place and appears on more products than is strictly reasonable.
+            Everything starts as a drawing. Most of them start as a drawing of the cat, who runs the
+            place and appears on more products than is strictly reasonable.
           </p>
           <p>
             Prints are run on heavy cotton paper in batches small enough to check every sheet.
@@ -54,7 +54,9 @@ export default function About() {
 
       <section className={styles.info} id="shipping">
         <div className="wrap">
-          <SectionHeading sub="The practical bits, in plain terms.">shipping &amp; returns</SectionHeading>
+          <SectionHeading sub="The practical bits, in plain terms.">
+            shipping &amp; returns
+          </SectionHeading>
           <div className={styles.cards}>
             {[
               {

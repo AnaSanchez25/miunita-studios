@@ -9,10 +9,30 @@
 */
 
 export const CATEGORIES = [
-  { id: 'prints', label: 'art prints', blurb: 'giclée prints on heavy cotton paper', tint: 'pink' },
-  { id: 'stickers', label: 'stickers', blurb: 'weatherproof vinyl, matte finish', tint: 'mint' },
-  { id: 'pins', label: 'enamel pins', blurb: 'hard enamel with rubber backs', tint: 'periwinkle' },
-  { id: 'washi', label: 'washi tape', blurb: 'japanese paper tape, 10m rolls', tint: 'butter' },
+  {
+    id: 'prints',
+    label: 'art prints',
+    blurb: 'giclée prints on heavy cotton paper',
+    tint: 'pink',
+  },
+  {
+    id: 'stickers',
+    label: 'stickers',
+    blurb: 'weatherproof vinyl, matte finish',
+    tint: 'mint',
+  },
+  {
+    id: 'pins',
+    label: 'enamel pins',
+    blurb: 'hard enamel with rubber backs',
+    tint: 'periwinkle',
+  },
+  {
+    id: 'washi',
+    label: 'washi tape',
+    blurb: 'japanese paper tape, 10m rolls',
+    tint: 'butter',
+  },
 ];
 
 export const FREE_SHIPPING_THRESHOLD = 35;

@@ -55,9 +55,18 @@ export default function Home() {
       <section className={styles.section}>
         <div className={`wrap ${styles.promise}`}>
           {[
-            { title: 'small batches', copy: 'Everything is drawn, printed and packed by hand in the studio.' },
-            { title: 'free sticker', copy: 'Every order goes out with a surprise sticker tucked inside.' },
-            { title: 'free shipping over $35', copy: 'Flat rate below that, and everything ships within three days.' },
+            {
+              title: 'small batches',
+              copy: 'Everything is drawn, printed and packed by hand in the studio.',
+            },
+            {
+              title: 'free sticker',
+              copy: 'Every order goes out with a surprise sticker tucked inside.',
+            },
+            {
+              title: 'free shipping over $35',
+              copy: 'Flat rate below that, and everything ships within three days.',
+            },
           ].map((item) => (
             <div key={item.title} className={styles.promiseItem}>
               <h3 className={styles.promiseTitle}>{item.title}</h3>
@@ -74,8 +83,8 @@ export default function Home() {
       <section className={`${styles.section} ${styles.aboutTease}`}>
         <div className="wrap">
           <p className={styles.teaseCopy}>
-            miunita studios is a one-person studio making paper goods for desks, diaries and
-            laptop lids.{' '}
+            miunita studios is a one-person studio making paper goods for desks, diaries and laptop
+            lids.{' '}
             <Link to="/about" className={styles.teaseLink}>
               read the whole story
             </Link>

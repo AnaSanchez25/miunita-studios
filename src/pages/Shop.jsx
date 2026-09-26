@@ -104,9 +104,7 @@ export default function Shop() {
           </ul>
         )}
 
-        <p className={styles.total}>
-          {products.length} products in the studio right now.
-        </p>
+        <p className={styles.total}>{products.length} products in the studio right now.</p>
       </div>
     </>
   );
