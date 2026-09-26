@@ -13,7 +13,10 @@
   - `Header` — the mobile menu remembers the URL it was opened on, so any
     navigation closes it without an effect.
 
+- [x] GitHub Actions `Lint` workflow runs `npm run lint` on every PR and on
+      pushes to `main`.
+
 ### Still to do
 
 - [ ] `npm run typecheck` and `npm test` are listed in CLAUDE.md but don't exist yet.
-- [ ] No CI workflow on GitHub yet, so nothing runs lint or deploys.
+- [ ] No deploy workflow yet — CI only lints.
