@@ -7,29 +7,31 @@ import styles from './Header.module.css';
 
 export default function Header() {
   const { count, openCart } = useCart();
-  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const current = `${location.pathname}${location.search}`;
 
-  // Navigating should always dismiss the mobile menu.
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [location.pathname, location.search]);
+  // Remember which URL the mobile menu was opened on. Navigating anywhere else
+  // dismisses it without needing an effect to reset it.
+  const [menuOpenAt, setMenuOpenAt] = useState(null);
+  const menuOpen = menuOpenAt === current;
+  const setMenuOpen = (open) => setMenuOpenAt(open ? current : null);
 
   // Escape closes the menu wherever focus happens to be.
   useEffect(() => {
     if (!menuOpen) return undefined;
-    const onKey = (e) => e.key === 'Escape' && setMenuOpen(false);
+    const onKey = (e) => e.key === 'Escape' && setMenuOpenAt(null);
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [menuOpen]);
 
   const links = [
     { to: '/shop', label: 'shop all' },
-    ...CATEGORIES.map((c) => ({ to: `/shop?category=${c.id}`, label: c.label })),
+    ...CATEGORIES.map((c) => ({
+      to: `/shop?category=${c.id}`,
+      label: c.label,
+    })),
     { to: '/about', label: 'about' },
   ];
-
-  const current = `${location.pathname}${location.search}`;
 
   return (
     <header className={styles.header}>
@@ -72,7 +74,7 @@ export default function Header() {
           <button
             type="button"
             className={styles.burger}
-            onClick={() => setMenuOpen((v) => !v)}
+            onClick={() => setMenuOpen(!menuOpen)}
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
@@ -86,7 +88,11 @@ export default function Header() {
         </div>
       </div>
 
-      <div id="mobile-nav" className={`${styles.mobileNav} ${menuOpen ? styles.mobileOpen : ''}`} hidden={!menuOpen}>
+      <div
+        id="mobile-nav"
+        className={`${styles.mobileNav} ${menuOpen ? styles.mobileOpen : ''}`}
+        hidden={!menuOpen}
+      >
         <ul className={styles.mobileList}>
           {links.map((link) => (
             <li key={link.to}>

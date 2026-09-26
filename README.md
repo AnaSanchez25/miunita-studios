@@ -36,12 +36,12 @@ You can email it, put it on a USB stick, or open it on a plane.
 
 ## What's in it
 
-| Page | Route | What it does |
-| --- | --- | --- |
-| Home | `#/` | Hero, featured products, category tiles, sticker club signup |
-| Shop | `#/shop` | Full catalogue, category filters, sorting |
-| Product | `#/product/peachy-cat-print` | Detail, quantity, add to cart, related items |
-| About | `#/about` | Studio story, shipping and returns, contact |
+| Page    | Route                        | What it does                                                 |
+| ------- | ---------------------------- | ------------------------------------------------------------ |
+| Home    | `#/`                         | Hero, featured products, category tiles, sticker club signup |
+| Shop    | `#/shop`                     | Full catalogue, category filters, sorting                    |
+| Product | `#/product/peachy-cat-print` | Detail, quantity, add to cart, related items                 |
+| About   | `#/about`                    | Studio story, shipping and returns, contact                  |
 
 Filters live in the URL, so `#/shop?category=pins` is a real link you can share or bookmark.
 
@@ -88,8 +88,7 @@ for the first year through Namecheap.
 
 ### Why there are no redirect rules
 
-Single-page apps normally need a rule sending every path back to `index.html`, or deep links
-404. Two things make that a non-issue here: routing happens on the URL hash (`#/shop`), which
+Single-page apps normally need a rule sending every path back to `index.html`, or deep links 404. Two things make that a non-issue here: routing happens on the URL hash (`#/shop`), which
 browsers never send to the server, and `wrangler.jsonc` sets `not_found_handling` to
 `single-page-application` so any unknown path serves the app anyway.
 
@@ -134,13 +133,13 @@ while you work through the catalogue — no code changes needed.
 The palette in `src/styles/tokens.css` is sampled directly from the logo artwork, so the site
 and the mascot always agree:
 
-| | |
-| --- | --- |
-| `#FDBACB` | the logo's background pink |
+|           |                                                  |
+| --------- | ------------------------------------------------ |
+| `#FDBACB` | the logo's background pink                       |
 | `#774433` | the outline brown — used as the main text colour |
-| `#D1D1D1` | the grey head patches |
-| `#FFE5BC` | the collar bell |
-| `#CAD9F9` | the collar |
+| `#D1D1D1` | the grey head patches                            |
+| `#FFE5BC` | the collar bell                                  |
+| `#CAD9F9` | the collar                                       |
 
 Change a value there and it updates everywhere.
 

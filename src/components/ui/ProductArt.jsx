@@ -91,7 +91,12 @@ function Sheet() {
 function Mushroom() {
   return (
     <g>
-      <path d="M40 62H68V80C68 87 62 91 54 91C46 91 40 87 40 80Z" fill={CREAM} {...stroke} strokeWidth="3" />
+      <path
+        d="M40 62H68V80C68 87 62 91 54 91C46 91 40 87 40 80Z"
+        fill={CREAM}
+        {...stroke}
+        strokeWidth="3"
+      />
       <path
         d="M16 60C16 38 33 21 54 21C75 21 92 38 92 60C92 63 89 65 85 65H23C19 65 16 63 16 60Z"
         fill={PINK}
@@ -116,7 +121,11 @@ function Washi() {
     <g>
       <ellipse cx="54" cy="56" rx="38" ry="34" fill={PINK} stroke={INK} strokeWidth="3" />
       <ellipse cx="54" cy="56" rx="16" ry="14" fill={CREAM} stroke={INK} strokeWidth="3" />
-      <path d="M30 34C34 40 34 46 30 52M54 26C58 32 58 38 54 44M78 34C82 40 82 46 78 52" {...stroke} strokeWidth="2.2" />
+      <path
+        d="M30 34C34 40 34 46 30 52M54 26C58 32 58 38 54 44M78 34C82 40 82 46 78 52"
+        {...stroke}
+        strokeWidth="2.2"
+      />
       <path d="M30 60C34 66 34 72 30 78M78 60C82 66 82 72 78 78" {...stroke} strokeWidth="2.2" />
       <path
         d="M16 74C16 74 8 80 8 86C8 90 12 92 16 90L30 83"
@@ -140,8 +149,20 @@ function Moon() {
       <ellipse cx="68" cy="58" rx="5.5" ry="3.4" fill={PINK} opacity="0.85" />
       <path d="M44 50Q47 47 50 50M58 50Q61 47 64 50" {...stroke} strokeWidth="2.4" />
       <path d="M50 58Q54 62 58 58" {...stroke} strokeWidth="2.4" />
-      <path d="M18 20L21 26L27 29L21 32L18 38L15 32L9 29L15 26Z" fill={PINK} stroke={INK} strokeWidth="2" strokeLinejoin="round" />
-      <path d="M92 68L94 73L99 75L94 77L92 82L90 77L85 75L90 73Z" fill={PERI} stroke={INK} strokeWidth="2" strokeLinejoin="round" />
+      <path
+        d="M18 20L21 26L27 29L21 32L18 38L15 32L9 29L15 26Z"
+        fill={PINK}
+        stroke={INK}
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M92 68L94 73L99 75L94 77L92 82L90 77L85 75L90 73Z"
+        fill={PERI}
+        stroke={INK}
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
     </g>
   );
 }
@@ -183,8 +204,20 @@ function Shelf() {
 function Bell() {
   return (
     <g>
-      <path d="M18 40C30 62 78 62 90 40" fill="none" stroke={INK} strokeWidth="11" strokeLinecap="round" />
-      <path d="M19 40C31 60 77 60 89 40" fill="none" stroke={PERI} strokeWidth="6" strokeLinecap="round" />
+      <path
+        d="M18 40C30 62 78 62 90 40"
+        fill="none"
+        stroke={INK}
+        strokeWidth="11"
+        strokeLinecap="round"
+      />
+      <path
+        d="M19 40C31 60 77 60 89 40"
+        fill="none"
+        stroke={PERI}
+        strokeWidth="6"
+        strokeLinecap="round"
+      />
       <circle cx="54" cy="64" r="17" fill={BUTTER} stroke={INK} strokeWidth="3" />
       <path d="M40 60H68" {...stroke} strokeWidth="2.6" />
       <path d="M54 64V79" {...stroke} strokeWidth="2.6" />
@@ -193,17 +226,27 @@ function Bell() {
   );
 }
 
-const SCENES = { cat: Cat, sheet: Sheet, mushroom: Mushroom, washi: Washi, moon: Moon, shelf: Shelf, bell: Bell };
+const SCENES = {
+  cat: Cat,
+  sheet: Sheet,
+  mushroom: Mushroom,
+  washi: Washi,
+  moon: Moon,
+  shelf: Shelf,
+  bell: Bell,
+};
 
-const TINTS = { pink: 'var(--pink-soft)', mint: 'var(--mint-soft)', periwinkle: 'var(--periwinkle-soft)', butter: 'var(--butter-soft)' };
+const TINTS = {
+  pink: 'var(--pink-soft)',
+  mint: 'var(--mint-soft)',
+  periwinkle: 'var(--periwinkle-soft)',
+  butter: 'var(--butter-soft)',
+};
 
 export default function ProductArt({ art = 'sheet', tint = 'pink', className = '' }) {
   const Scene = SCENES[art] ?? Sheet;
   return (
-    <div
-      className={`${styles.art} ${className}`}
-      style={{ background: TINTS[tint] ?? TINTS.pink }}
-    >
+    <div className={`${styles.art} ${className}`} style={{ background: TINTS[tint] ?? TINTS.pink }}>
       <svg viewBox="0 0 108 108" className={styles.svg} aria-hidden="true" focusable="false">
         <Scene />
       </svg>

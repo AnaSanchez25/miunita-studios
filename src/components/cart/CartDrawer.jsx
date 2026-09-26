@@ -10,11 +10,17 @@ const FOCUSABLE =
   'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
 export default function CartDrawer() {
+  const { isOpen } = useCart();
+  // The panel only mounts while open, so its state (like the checkout note)
+  // starts fresh every time the drawer reopens.
+  return isOpen ? <CartPanel /> : null;
+}
+
+function CartPanel() {
   const {
     lines,
     count,
     subtotal,
-    isOpen,
     closeCart,
     setQty,
     removeItem,
@@ -26,14 +32,7 @@ export default function CartDrawer() {
   const previouslyFocused = useRef(null);
   const [checkoutNote, setCheckoutNote] = useState(false);
 
-  // Reset the "coming soon" note whenever the drawer reopens.
   useEffect(() => {
-    if (isOpen) setCheckoutNote(false);
-  }, [isOpen]);
-
-  useEffect(() => {
-    if (!isOpen) return undefined;
-
     previouslyFocused.current = document.activeElement;
     // Lock the page behind the drawer so scrolling does not bleed through.
     const prevOverflow = document.body.style.overflow;
@@ -75,9 +74,7 @@ export default function CartDrawer() {
       window.clearTimeout(focusTimer);
       previouslyFocused.current?.focus?.();
     };
-  }, [isOpen, closeCart]);
-
-  if (!isOpen) return null;
+  }, [closeCart]);
 
   const progress = Math.min(100, (subtotal / FREE_SHIPPING_THRESHOLD) * 100);
 
@@ -94,7 +91,12 @@ export default function CartDrawer() {
       >
         <header className={styles.head}>
           <h2 className={styles.title}>your cart</h2>
-          <button type="button" className={styles.close} onClick={closeCart} aria-label="Close cart">
+          <button
+            type="button"
+            className={styles.close}
+            onClick={closeCart}
+            aria-label="Close cart"
+          >
             <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
               <path
                 d="M6 6l12 12M18 6L6 18"

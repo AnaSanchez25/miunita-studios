@@ -3,7 +3,12 @@ import ProductArt from '../ui/ProductArt';
 import { CATEGORIES } from '../../data/products';
 import styles from './CategoryStrip.module.css';
 
-const ART = { prints: 'moon', stickers: 'sheet', pins: 'mushroom', washi: 'washi' };
+const ART = {
+  prints: 'moon',
+  stickers: 'sheet',
+  pins: 'mushroom',
+  washi: 'washi',
+};
 
 export default function CategoryStrip() {
   return (

@@ -13,7 +13,12 @@ import styles from './Dividers.module.css';
   flat line, so it defaults to the pink band that sits above most dividers.
 */
 
-export function ZigzagDivider({ color = 'var(--cream)', bg = 'var(--pink)', flip = false, height = 22 }) {
+export function ZigzagDivider({
+  color = 'var(--cream)',
+  bg = 'var(--pink)',
+  flip = false,
+  height = 22,
+}) {
   return (
     <svg
       className={`${styles.divider} ${flip ? styles.flip : ''}`}
@@ -31,7 +36,12 @@ export function ZigzagDivider({ color = 'var(--cream)', bg = 'var(--pink)', flip
   );
 }
 
-export function WaveDivider({ color = 'var(--cream)', bg = 'var(--pink)', flip = false, height = 34 }) {
+export function WaveDivider({
+  color = 'var(--cream)',
+  bg = 'var(--pink)',
+  flip = false,
+  height = 34,
+}) {
   return (
     <svg
       className={`${styles.divider} ${flip ? styles.flip : ''}`}
@@ -49,7 +59,12 @@ export function WaveDivider({ color = 'var(--cream)', bg = 'var(--pink)', flip =
   );
 }
 
-export function ScallopDivider({ color = 'var(--cream)', bg = 'var(--pink)', flip = false, height = 22 }) {
+export function ScallopDivider({
+  color = 'var(--cream)',
+  bg = 'var(--pink)',
+  flip = false,
+  height = 22,
+}) {
   return (
     <svg
       className={`${styles.divider} ${flip ? styles.flip : ''}`}
